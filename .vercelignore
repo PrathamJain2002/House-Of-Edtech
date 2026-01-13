@@ -1,0 +1,17 @@
+node_modules
+.next
+.env*.local
+.env
+*.log
+.DS_Store
+coverage
+.vercel
+.vscode
+.idea
+*.swp
+*.swo
+e2e
+app/__tests__
+jest.config.js
+jest.setup.js
+playwright.config.ts
