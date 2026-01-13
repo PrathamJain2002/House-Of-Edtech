@@ -30,15 +30,15 @@ export default function SignInPage() {
         email: validatedData.email,
         password: validatedData.password,
         redirect: false,
-      } as any);
+      });
 
-      if (result?.error) {
+      if (result && 'error' in result && result.error) {
         toast({
           title: "Error",
-          description: result.error,
+          description: result.error as string,
           variant: "destructive",
         });
-      } else {
+      } else if (!result || result.ok) {
         toast({
           title: "Success",
           description: "Signed in successfully",

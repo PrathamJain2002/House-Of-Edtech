@@ -48,14 +48,14 @@ export default function SignUpPage() {
         redirect: false,
       });
 
-      if (signInResult?.error) {
+      if (signInResult && 'error' in signInResult && signInResult.error) {
         // If auto sign-in fails, redirect to sign in page
         toast({
           title: "Account Created",
           description: "Account created successfully. Please sign in.",
         });
         router.push("/auth/signin");
-      } else {
+      } else if (!signInResult || signInResult.ok) {
         // Successfully signed in, redirect to home
         toast({
           title: "Success",
